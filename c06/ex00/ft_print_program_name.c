@@ -18,8 +18,8 @@ int	main(int ac, char **av)
 	a = 0;
 	while (av[0][a] != '\0' && ac)
 	{
-		a++;
 		write(1, &av[0][a], 1);
+        a++;
 	}
 	write(1, "\n", 1);
 }

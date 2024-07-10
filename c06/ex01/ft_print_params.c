@@ -33,7 +33,7 @@ int	main(int ac, char **av)
 	int	w;
 
 	w = 1;
-	while (av[w])
+	while (av[w] && ac)
 	{
 		ft_putstr(av[w]);
 		write(1, "\n", 1);

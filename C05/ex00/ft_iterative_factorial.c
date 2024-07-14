@@ -6,20 +6,19 @@
 /*   By: youbraim <youbraim@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 10:01:56 by youbraim          #+#    #+#             */
-/*   Updated: 2024/07/13 18:06:25 by youbraim         ###   ########.fr       */
+/*   Updated: 2024/07/14 11:07:09 by youbraim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_iterative_factorial(int nb)
 {
 	int	a;
-	int	j;
 
-	a = nb;
-	j = nb - 1;
-	while (j != 0)
+	a = 1;
+	while (nb != 0)
 	{
-		a = a * j;
-		j--;
+		a = a * nb;
+		nb--;
 	}
+	return (a);
 }

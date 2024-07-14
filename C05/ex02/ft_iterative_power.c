@@ -6,7 +6,7 @@
 /*   By: youbraim <youbraim@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 14:14:46 by youbraim          #+#    #+#             */
-/*   Updated: 2024/07/09 15:36:05 by youbraim         ###   ########.fr       */
+/*   Updated: 2024/07/14 11:04:41 by youbraim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 int	ft_iterative_power(int nb, int power)
@@ -16,7 +16,7 @@ int	ft_iterative_power(int nb, int power)
 
 	i = 0;
 	r = 1;
-	while (nb < 0)
+	while (power < 0)
 	{
 		return (0);
 	}

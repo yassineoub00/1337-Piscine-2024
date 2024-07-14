@@ -14,8 +14,8 @@ int	ft_iterative_power(int nb, int power)
 	int	i;
 	int	r;
 
-	r = 1;
 	i = 0;
+	r = 1;
 	while (nb < 0)
 	{
 		return (0);

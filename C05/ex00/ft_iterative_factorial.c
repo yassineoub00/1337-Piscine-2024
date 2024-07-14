@@ -6,7 +6,7 @@
 /*   By: youbraim <youbraim@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 10:01:56 by youbraim          #+#    #+#             */
-/*   Updated: 2024/07/14 11:07:09 by youbraim         ###   ########.fr       */
+/*   Updated: 2024/07/14 11:29:11 by youbraim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@ int	ft_iterative_factorial(int nb)
 	int	a;
 
 	a = 1;
+	if (nb <= 0)
+		return (0);
 	while (nb != 0)
 	{
 		a = a * nb;

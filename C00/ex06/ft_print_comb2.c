@@ -1,29 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youbraim <youbraim@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/29 10:50:15 by youbraim          #+#    #+#             */
-/*   Updated: 2024/06/29 11:43:41 by youbraim         ###   ########.fr       */
+/*   Created: 2024/07/16 11:23:03 by youbraim          #+#    #+#             */
+/*   Updated: 2024/07/16 13:37:09 by youbraim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
 
-void	ft_putchar(char c)
+void	ktb(char c)
 {
 	write(1, &c, 1);
 }
 
-void	ft_print_numbers(void)
+void	ft_print_comb2(void)
 {
-	int	yass;
+	int	a;
+	int	b;
 
-	yass = 48;
-	while (yass <= 57)
+	a = 0;
+	while (a <= 98)
 	{
-		ft_putchar(yass);
-		yass++;
+		b = a + 1;
+		while (b <= 99)
+		{
+			ktb((a / 10) + 48);
+			ktb((a % 10) + 48);
+			ktb(' ');
+			ktb((b / 10) + 48);
+			ktb((b % 10) + 48);
+			if (a != 98)
+			{
+				ktb(',');
+				ktb(' ');
+			}
+			b++;
+		}
+		a++;
 	}
+	ktb('\n');
 }

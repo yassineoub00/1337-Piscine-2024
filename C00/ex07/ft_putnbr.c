@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youbraim <youbraim@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/29 10:50:15 by youbraim          #+#    #+#             */
-/*   Updated: 2024/06/29 11:43:41 by youbraim         ###   ########.fr       */
+/*   Created: 2024/07/16 14:11:18 by youbraim          #+#    #+#             */
+/*   Updated: 2024/07/16 15:22:44 by youbraim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
 
-void	ft_putchar(char c)
+void	ktb(char c)
 {
-	write(1, &c, 1);
+	write (1, &c, 1);
 }
 
-void	ft_print_numbers(void)
+void	ft_putnbr(int nb)
 {
-	int	yass;
-
-	yass = 48;
-	while (yass <= 57)
+	if (nb >= 0 && nb <= 9)
+		ktb(nb + 48);
+	if (nb < 0)
 	{
-		ft_putchar(yass);
-		yass++;
+		ktb('-');
+		nb = -nb;
+	}
+	if (nb > 9)
+	{
+		ft_putnbr(nb / 10);
+		ktb((nb % 10) + 48);
 	}
 }

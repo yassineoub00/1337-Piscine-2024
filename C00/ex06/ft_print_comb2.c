@@ -6,7 +6,7 @@
 /*   By: youbraim <youbraim@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 11:23:03 by youbraim          #+#    #+#             */
-/*   Updated: 2024/07/16 13:37:09 by youbraim         ###   ########.fr       */
+/*   Updated: 2024/07/16 15:46:53 by youbraim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -41,5 +41,4 @@ void	ft_print_comb2(void)
 		}
 		a++;
 	}
-	ktb('\n');
 }

@@ -6,7 +6,7 @@
 /*   By: youbraim <youbraim@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 14:11:18 by youbraim          #+#    #+#             */
-/*   Updated: 2024/07/16 15:22:44 by youbraim         ###   ########.fr       */
+/*   Updated: 2024/07/16 15:51:24 by youbraim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -18,6 +18,12 @@ void	ktb(char c)
 
 void	ft_putnbr(int nb)
 {
+	if (nb == -2147483648)
+	{
+		ktb('-');
+		ktb('2');
+		nb = 147483648;
+	}
 	if (nb >= 0 && nb <= 9)
 		ktb(nb + 48);
 	if (nb < 0)

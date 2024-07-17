@@ -6,78 +6,88 @@
 /*   By: youbraim <youbraim@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 15:48:46 by youbraim          #+#    #+#             */
-/*   Updated: 2024/07/17 17:41:40 by youbraim         ###   ########.fr       */
+/*   Updated: 2024/07/17 19:34:28 by youbraim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
 
+#include <stdlib.h>
+
 int	ft_strlen(char *str)
 {
-	int	i;
+	int	len;
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
+	len = 0;
+	while (str[len] != '\0')
+		len++ ;
+	return (len);
 }
 
-char	*ft_strcpy(char *dest, char *src)
+void	ft_strpcat(char *dest, char *src, int pos)
 {
-	int	index;
+	int	j;
 
-	index = 0;
-	while (src[index] != '\0')
+	j = 0;
+	while (src[j] != '\0')
 	{
-		dest[index] = src[index];
-		index++;
+		dest[pos + j] = src[j];
+		j++;
 	}
-	dest[index] = '\0';
+}
+
+char	*ft_cat_strs(char *dest, char **strs, int size, char *sep)
+{
+	int	i;
+	int	pos;
+
+	i = 0;
+	pos = 0;
+	while (i < size)
+	{
+		ft_strpcat(dest, strs[i], pos);
+		pos += ft_strlen(strs[i]);
+		if (i < size - 1)
+		{
+			ft_strpcat(dest, sep, pos);
+			pos += ft_strlen(sep);
+		}
+		i++;
+	}
+	dest[pos] = '\0';
 	return (dest);
 }
 
-int	ft_compute_final_length(char **strings, int size, int sep_length)
+int	count_strs(char **strs, int size, char *sep)
 {
-	int	final_length;
-	int	index;
+	int	i;
+	int	strs_len;
 
-	final_length = 0;
-	index = 0;
-	while (index < size)
+	i = 0;
+	strs_len = 0;
+	while (i < size)
 	{
-		final_length += ft_strlen(strings[index]);
-		final_length += sep_length;
-		index++;
+		strs_len += ft_strlen(strs[i]);
+		if (i < size - 1)
+			strs_len += ft_strlen(sep);
+		i++;
 	}
-	final_length -= sep_length;
-	return (final_length);
+	return (strs_len);
 }
 
 char	*ft_strjoin(int size, char **strs, char *sep)
 {
-	int		full_length;
-	int		index;
-	char	*string;
-	char	*d;
+	char	*dest;
 
-	if (size == 0)
-		return ((char *)malloc(sizeof(char)));
-	full_length = ft_compute_final_length(strs, size, ft_strlen(sep));
-	string = (char *)malloc((full_length + 1) * sizeof(char));
-	d = string;
-	index = 0;
-	while (index < size)
+	if (size <= 0)
 	{
-		ft_strcpy(d, strs[index]);
-		d += ft_strlen(strs[index]);
-		if (index < size - 1)
-		{
-			ft_strcpy(d, sep);
-			d += ft_strlen(sep);
-			index++;
-		}
+		dest = malloc(1);
+		dest[0] = '\0';
+		return (dest);
 	}
-	*d = '\0';
-	return (string);
+	dest = (char *) malloc
+		((count_strs(strs, size, sep) + 1) * sizeof(char));
+	if (!dest)
+		return (NULL);
+	ft_cat_strs(dest, strs, size, sep);
+	return (dest);
 }

@@ -5,25 +5,35 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: youbraim <youbraim@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/03 09:39:44 by youbraim          #+#    #+#             */
-/*   Updated: 2024/07/03 11:08:42 by youbraim         ###   ########.fr       */
+/*   Created: 2024/07/18 08:45:12 by youbraim          #+#    #+#             */
+/*   Updated: 2024/07/18 09:47:09 by youbraim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stdio.h>
+
 char	*ft_strstr(char *str, char *to_find)
 {
-	int	a;
-	int	s;
+	int	i;
+	int	j;
+	int	ok;
 
-	a = 0;
-	s = 0;
-	while (str[a] != '\0' && to_find[a] == str[a + s])
+	i = 0;
+	j = 0;
+	if (to_find[j] == '\0')
+		return (str);
+	if (str[i] == '\0')
+		return (0);
+	while (str[i] != '\0')
 	{
-		if (to_find[s + 1] == '\0')
+		ok = 0;
+		while ((str[i + ok] == to_find[ok]) && str[i + ok] != '\0'
+			&& to_find[ok] != '\0')
+			ok++;
+		if (to_find[ok] == '\0')
 		{
-			return (str + a);
-			s++;
+			return (&str[i]);
 		}
-		a++;
+		i++;
 	}
 	return (0);
 }
